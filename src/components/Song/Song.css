@@ -1,0 +1,66 @@
+.song-container {
+    width: 380px;
+    height: 250px;
+    border: 2px solid #f1f1f1;
+    box-sizing: border-box;
+    padding: 10px
+  }
+  
+  .song-cover {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 355px;
+    height: 170px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .is-playing {
+    color: white;
+    font-size: 55px;
+    visibility: hidden;
+    cursor: pointer;
+  }
+  
+  .song-cover:hover > .is-playing .fa-play-circle-o{
+    visibility: visible;
+  }
+  
+  .song-name {
+    font-family: Roboto, sans-serif;
+    color: #6C6C6C;
+    margin-bottom: 5px;
+  }
+  
+  .time-and-heart {
+    display: flex;
+    justify-content: space-between;
+    color: #6C6C6C;
+    font-family: Roboto, sans-serif;
+    margin-top: 5px;
+  }
+
+.is-paused{
+  color:white;
+  font-size: 55px;
+}
+
+.fa-play-circle-o{
+  color:white;
+  font-size: 55px;
+  visibility: hidden;
+}
+
+.song-cover:hover >  .fa-play-circle-o{
+  visibility: visible;
+}
+
+i.fa-clock-o {
+  margin-right: .4em;
+}

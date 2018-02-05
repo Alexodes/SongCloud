@@ -1,0 +1,122 @@
+.navbar {
+    font-family: Roboto,sans-serif;
+    color:white;
+}
+
+nav.navigation {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    background-color: #2196f3;
+    width: 100%;
+    padding: 1em;
+}
+
+.links {
+    color: white;
+    font-weight: 300;
+}
+
+.link {
+    padding: 22px 10px;
+    text-decoration: none;
+    color: white;
+    padding: 21px 10px 22px 10px;
+}
+
+.left ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo-name i {
+    color:white;
+    font-size: 1.88rem;
+    padding-right: .7em;
+}
+
+.sound-logo {
+    display: flex;
+    padding-right: 1em;
+}
+
+a.logo-name {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #2196f3;
+    color: white;
+}
+
+a.logo-name span{
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.active {
+    background-color: #1e88e5;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    padding-right: 2em;
+}
+
+.search-form {
+    position: relative;
+}
+
+.search-icon {
+    background-color:transparent;
+    border: none;
+    color: white;
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    outline: 0;
+    cursor: pointer;
+}
+
+input.search-input {
+    margin: 0 !important;
+    padding: 6px 6px 6px 30px !important;
+    border: 1px solid #d8d8d8;
+    background-color: #1e88e5;
+    border-radius: 25px;
+    letter-spacing: 1px;
+    width: 200px;
+    color:white;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 1;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: white;
+    font-weight: 300;
+    font-size: 12px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: white;
+    font-weight: 300;
+    font-size: 12px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: white;
+    font-weight: 300;
+    font-size: 12px;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: white;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.logout-link {
+    font-weight: 300;
+    padding-left: 1em;
+}

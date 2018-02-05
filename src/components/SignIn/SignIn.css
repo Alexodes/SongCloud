@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  img {
+    border: 0;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  html {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+  }
+  
+  
+  .wrapper {
+    text-align: center;
+  }
+  
+  .fa-mixcloud {
+    font-size: 100px;
+    color: #2196F3;
+  }
+  
+  .header {
+    margin-top: 220px;
+    margin-bottom: 48px;
+  }
+  
+  .header h1 {
+    font-size: 40px;
+    color: #2196F3;
+    font-weight: 400;
+  }
+  
+  .sign_form {
+    width: 416px;
+    margin: 0 auto;
+  }
+
+  .sign_form form {
+    margin-bottom: 35px;
+  }
+  
+  #sign {
+    text-align: left;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  
+  .form_content {
+    text-align: left;
+  
+  }
+  
+  input {
+    display: block;
+    border: none;
+    border-bottom: solid 1px #2196F3;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    color: rgba(0,0,0,0.87);
+    font-weight: 400;
+    outline: none;
+  }
+  
+  label {
+    color: #2196F3;
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .submiting_b {
+    margin:0 auto;
+    color: #fff;
+    background-color: #2196F3;
+    font-size: 13px;
+    border-radius: 2px;
+    font-weight: 500;
+    padding: 6px 12px 5px 12px;
+    cursor: pointer;
+    width: auto;
+    margin-top: 46px;
+    margin-bottom: 35px;
+    text-decoration: none;
+  }
+  
+  .form_content p {
+    font-size: 14px;
+    font-weight: 400;
+  
+  }
+  
+  .form_content p > a {
+    text-decoration: none;
+    color: #2196F3;
+  }
+  
+  .form_content p > a:hover{
+    text-decoration: underline;
+  }
+  
