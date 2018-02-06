@@ -57,6 +57,10 @@ ul.songs-list {
     cursor: pointer;
 }
 
+.btn-prev:hover, .btn-next:hover {
+    background-color: rgb(51, 124, 202);
+}
+
 .btn-prev:disabled {
     background: #dddddd;
 }

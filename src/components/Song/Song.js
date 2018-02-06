@@ -33,6 +33,67 @@ class Song extends Component {
         this.setState({ DropdownOpen: !this.state.DropdownOpen});
     }
 
+    componentDidMount() {
+        this.handleLike();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.DropdownOpen === false && this.state.DropdownOpen === true) {
+            this.setState({ heart: "fa fa-heart heart-font" });
+        }
+        if(prevState.DropdownOpen === true && this.state.DropdownOpen === false) {
+            this.setState({ heart: "fa fa-heart-o heart-font-o" });
+            this.handleLike();
+        }
+        if(this.props.playlists !== prevProps.playlists) {
+            this.handleLike();
+        }
+    }
+
+    handleLike() {
+        this.props.playlists.map(playlist => {
+            playlist.songs.map(song => {
+                if(song.id === this.props.song.id) {
+                    return this.setState({
+                        heart: 'fa fa-heart heart-font'
+                    });
+                }
+            })
+        });
+    }
+
+    handleCheckedPlaylist(e) {
+
+    }
+
+    renderCheckboxInDropDown() {
+        const song = this.props.song;
+        return this.props.playlists.map(playlist => {
+            let checkIfInPlaylist = false;
+
+            playlist.songs.forEach(songInPlaylist => {
+                if(songInPlaylist.id === song.id) {
+                    checkIfInPlaylist = true;
+                }
+            });
+            return (
+                <label key={playlist.id} className="label">
+                    <input type="checkbox" checked={checkIfInPlaylist} onChange={this.handleCheckedPlaylist} id={playlist.id}/>
+                </label>
+            );
+        });
+    }
+
+    handleAddNewPlaylist(song) {
+        let playlistId = uuid();
+        let newPlaylist = {
+            id: playlistId,
+            title: 'UNTITLED',
+            songs: [song]
+        };
+        this.props.addNewPlaylist(newPlaylist);
+    }
+
     handlePlay(song) {
         this.props.updateCurrentSong(song);
 
@@ -45,7 +106,6 @@ class Song extends Component {
             const playingMode = true;
             this.props.handlePlayMode(playingMode);
         }
-
     }
 
     render() {
@@ -74,9 +134,24 @@ class Song extends Component {
                     </div>
 
                     <div className="heart-playlist-div">
-                        <i className="fa fa-heart-o heart-font-o"></i>
+                        <i 
+                            onClick={() => this.openDropDown()} 
+                            className="fa fa-heart-o heart-font-o"></i>
+
+                        {this.state.DropdownOpen && <div className="add-playlist-dropdown">
+                            { (this.props.mode === 'explore') && <div className="add-edit-div">
+                                <span>Add To Playlist</span>
+                                <Link to="/playlists" onClick={() => this.handleAddNewPlaylist(song)}>Create Playlist +</Link>
+                                </div>
+                            }
+                            {(this.props.mode === "playlists") && <span>Edit Playlist</span>}
+
+                            <div className="playlist-checkbox-div">
+                                {this.renderCheckboxInDropDown()}
+                            </div>
+                        </div>
+                        }
                     </div>
-                    
                 </div>
             </div>
         );
@@ -96,14 +171,27 @@ function mapDispatchToProps(dispatch) {
                 type: 'UPDATE_CURRENT_SONG',
                 song: song
                 })
-            }
+            },
+            addNewPlaylist(newPlaylist) {
+                dispatch({
+                    type: 'IS_NEW_PLAYLIST',
+                    newPlaylist: true
+                });
+
+                dispatch({
+                    type: 'ADD_NEW_PLAYLIST',
+                    newPlaylist: newPlaylist
+                });
+            },
+
         }
 }
 
 function mapStateToProps(state) {
     return {
         currentSong: state.currentSong,
-        isPlaying: state.isPlayingMode
+        isPlaying: state.isPlayingMode,
+        playlists: state.playlists
     }
   }
 
